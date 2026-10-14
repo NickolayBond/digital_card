@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from '../dist/src/app.module.js';
+import { AppModule } from '../dist/app.module.js';
 import serverless from 'serverless-http';
 
 let cachedServer;
