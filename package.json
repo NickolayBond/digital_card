@@ -7,11 +7,11 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-  "build": "prisma generate && nest build",
-  "start": "nest start",
-  "start:prod": "node dist/main.js",
-  "db:migrate": "prisma migrate deploy",
-  "db:seed": "tsx prisma/seed.ts"
+    "build": "prisma generate && nest build",
+    "start": "nest start",
+    "start:prod": "node dist/main.js",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@apollo/server": "^5.5.1",
@@ -29,10 +29,13 @@
     "serverless-http": "^4.0.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
     "@nestjs/cli": "^12.0.0",
     "@nestjs/mau": "^0.2.6",
     "@nestjs/schematics": "^12.0.0",
     "@nestjs/testing": "^12.0.1",
+    "@snaplet/copycat": "^6.0.0",
+    "@snaplet/seed": "^0.98.0",
     "@swc/cli": "^0.8.1",
     "@swc/core": "^1.16.18",
     "@types/express": "^5.0.0",
@@ -42,6 +45,7 @@
     "dotenv": "^18.0.7",
     "oxlint": "^1.58.0",
     "oxlint-tsgolint": "^7.0.2001",
+    "postgres": "^3.4.9",
     "prettier": "^3.4.2",
     "prisma": "^7.10.0",
     "source-map-support": "^0.5.21",

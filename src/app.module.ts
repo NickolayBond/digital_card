@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { PrismaModule } from 'prisma/prisma.module.js';
 import { ProfileModule } from 'profile/profile.module.js';
+import { AppController } from './app.controller.js';
 
 @Module({
   imports: [
@@ -11,11 +12,12 @@ import { ProfileModule } from 'profile/profile.module.js';
       driver: ApolloDriver,
       autoSchemaFile: true,
       sortSchema: true,
-      playground: false,
+      introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
     PrismaModule,
     ProfileModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}

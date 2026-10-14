@@ -1,15 +1,13 @@
 import { Resolver, Query } from '@nestjs/graphql';
-import { ProfileModel } from './models/profile.model.js';
-import { ProfileService } from './profile.service.js';
+import { PrismaService } from '../prisma/prisma.service.js';
+import { ProfileGraph } from './models/profile.model.js';
 
-
-
-@Resolver(() => ProfileModel)
+@Resolver(() => ProfileGraph)
 export class ProfileResolver {
-  constructor(private readonly profileService: ProfileService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  @Query(() => ProfileModel, { nullable: true })
-  async profile() {
-    return this.profileService.getProfile();
+  @Query(() => [ProfileGraph], { name: 'profiles' })
+  async getProfiles() {
+    return this.prisma.profile.findMany();
   }
 }
