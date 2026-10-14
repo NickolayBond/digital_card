@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ExperienceModel {
+  achievements: [String!]!
+  company: String!
+  id: ID!
+  period: String!
+  position: String!
+}
+
+type LinkModel {
+  id: ID!
+  label: String!
+  url: String!
+}
+
+type ProfileModel {
+  description: String!
+  experience: [ExperienceModel!]!
+  id: ID!
+  links: [LinkModel!]!
+  name: String!
+  projects: [ProjectModel!]!
+  skills: [SkillModel!]!
+}
+
+type ProjectModel {
+  id: ID!
+  link: String!
+  name: String!
+}
+
+type Query {
+  profile: ProfileModel
+}
+
+type SkillModel {
+  id: ID!
+  name: String!
+}

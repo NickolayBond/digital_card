@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: digital_card
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: postgresql://user:password@postgres:5432/digital_card?schema=public
+    volumes:
+      - .:/app                  
+      - /app/node_modules     
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:
