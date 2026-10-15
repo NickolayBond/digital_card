@@ -75,14 +75,3 @@ export class ProfileModel {
   projects: ProjectModel[];
 }
 
-@ObjectType()
-export class ProfileGraph {
-  @Field(() => ID)
-  id: string;
-
-  @Field()
-  name: string;
-
-  @Field()
-  description: string;
-}
